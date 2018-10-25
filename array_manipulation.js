@@ -52,37 +52,55 @@
 // console.log(currentMax);
 
 //try 4 failed
-//let n = 10;
-//let queries = [ [ 1, 5, 3 ], [ 4, 8, 7 ], [ 6, 9, 1 ] ];
+// let n = 10;
+// let queries = [ [ 1, 5, 3 ], [ 4, 8, 7 ], [ 6, 9, 1 ] ];
 // expected 10
-//let n = 5;
-//let queries = [ [ 1, 2, 100 ], [ 2, 5, 100 ], [ 3, 4, 100 ] ]
+// let n = 5;
+// let queries = [ [ 1, 2, 100 ], [ 2, 5, 100 ], [ 3, 4, 100 ] ]
 // expected 200
-let n = 10;
-let queries = [ [ 2, 6, 8 ], [ 3, 5, 7 ], [ 1, 8, 1 ], [ 5, 9, 15 ] ];
+// let n = 10;
+// let queries = [ [ 2, 6, 8 ], [ 3, 5, 7 ], [ 1, 8, 1 ], [ 5, 9, 15 ] ];
 // expected 31
+let n = 50
+let queries = [[1,2,1],[4,5,1],[12,16,1],[22,23,1]]
 let arr = [];
 let currentMax = 0;
 let max = {
-	value: false,
+	value: 0,
 	a: 0,
 	b: n-1
 };
+var doOverlap = false;
+function overlap(a,b,c,d){
+	if (c <= a <= d){
+		if(c <= b <= d){
+			return [a,b];
+		}else{
+			return [a,d];
+		}
+	} else {
+		if(a<c){
+			if(c <= b <= d){
+				return [c,b];
+			}else{
+				if(b>d){
+					return [c,d];
+				}else{
+					return false;
+				}
+			}
+		} else {
+			return false
+		}
+	}
+}
 function getMax(a,b,k){
 	max.value = currentMax;
-	max = arr.reduce((prev,current) => {
-		if (prev.value>current.value) {
-			return {
-				value: prev.value,
-				a: prev.a>current.a ? prev.a : current.a,
-				b: prev.b<current.b ? prev.b : current.b
-			}
-		}
-	},max);
-	console.log(max);
-	if(a<=max.b){
-		max.a = a>max.a ? a : max.a;
-		max.b = b<max.b ? b : max.b;
+	console.log('a:',a,'b:',b,'k',k);
+	doOverlap = overlap(a,b,max.a,max.b);
+	if(doOverlap){
+		max.a = overlap[0]; 
+		max.b = overlap[1];
 		max.value += k;
 		arr.push(max)
 	}else{
@@ -94,8 +112,6 @@ function getMax(a,b,k){
 			}
 		);
 	}
-	console.log('a:',a,'b:',b,'k',k);
-	console.log(arr);
 	console.log('------------------')
 	return max.value;
 }
