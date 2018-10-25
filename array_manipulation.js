@@ -61,61 +61,117 @@
 // let n = 10;
 // let queries = [ [ 2, 6, 8 ], [ 3, 5, 7 ], [ 1, 8, 1 ], [ 5, 9, 15 ] ];
 // expected 31
-let n = 50
-let queries = [[1,2,1],[4,5,1],[12,16,1],[22,23,1]]
-let arr = [];
-let currentMax = 0;
-let max = {
-	value: 0,
-	a: 0,
-	b: n-1
-};
-var doOverlap = false;
-function overlap(a,b,c,d){
-	if (c <= a <= d){
-		if(c <= b <= d){
-			return [a,b];
-		}else{
-			return [a,d];
-		}
-	} else {
-		if(a<c){
-			if(c <= b <= d){
-				return [c,b];
-			}else{
-				if(b>d){
-					return [c,d];
-				}else{
-					return false;
-				}
-			}
-		} else {
-			return false
-		}
+//let n = 50
+//let queries = [[1,2,1],[4,5,1],[12,16,1],[22,23,1]]
+// let arr = [];
+// let prev = [];
+// let current = [];
+// let currentMax = 0;
+// let max = {
+// 	value: 0,
+// 	a: 0,
+// 	b: n-1,
+// 	multi: false
+// };
+// var isOverlap = false;
+// let getOverlap = function(a,b,c,d){
+// 	let result;
+// 	if (c <= a && a <= d){
+// 		if(c <= b && b <= d){
+// 			result = [a,b];
+// 		}else{
+// 			result = [a,d];
+// 		}
+// 	} else {
+// 		if(a<c){
+// 			if(c <= b && b <= d){
+// 				result = [c,b];
+// 			}else{
+// 				if(b>d){
+// 					result = [c,d];
+// 				}else{
+// 					result = false;
+// 				}
+// 			}
+// 		} else {
+// 			result = false
+// 		}
+// 	}
+// 	return result;
+// }
+// let getMax = function(){
+// 	return arr.reduce((prev, current) => {
+// 		return prev.value < current.value ? current : prev;
+// 	},max)
+// }
+// let setMax = function(a,b,value,multi){
+// 	arr.push({
+// 		value: value,
+// 		a: a,
+// 		b: b,
+// 		multi: multi
+// 	});
+// }
+
+// for (let index in queries){
+// 	if(index < queries.length-1){
+// 		prev = queries[parseInt(index)];
+// 		current = queries[parseInt(index)+1];
+// 		isOverlap = getOverlap(prev[0],prev[1],current[0],current[1]);
+// 		if (isOverlap) {
+// 			setMax(isOverlap[0],isOverlap[1],prev[2]+current[2],false);
+// 			console.log('here:',isOverlap);
+// 		} else {
+// 			max = getMax()
+// 			if(prev[2] < current[2]){
+// 				if(max.value < current[2]){
+// 					setMax(current[0], current[1],current[2],false)
+// 				} else {
+// 					if(max.value == current.value){
+// 						isOverlap = getOverlap(max.a,max.b,current.a,current.b);
+// 						if (isOverlap){
+// 							setMax(isOverlap[0],isOverlap[1],current.value,false);
+// 						} else {
+// 							setMax([isOverlap[0],current.a],[isOverlap[1],current.b],current.value,true);
+// 						}
+// 					}
+// 				}
+// 			} else {
+// 				isOverlap = getOverlap(prev[0],prev[1],current[0],current[1]);
+// 				if (isOverlap){
+// 					setMax(isOverlap[0],isOverlap[1],current.value,false);
+// 				} else {
+// 					setMax([isOverlap[0],current.a],[isOverlap[1],current.b],current.value,true);
+// 				}
+// 			}
+// 			console.log(max.value);
+// 			console.log('Nope',isOverlap);
+// 		}
+// 	}
+// }
+
+// console.log('Done!',currentMax);
+
+let n = 10;
+let queries = [ [ 2, 6, 8 ], [ 3, 5, 7 ], [ 1, 8, 1 ], [ 5, 9, 15 ] ];
+// expected 31
+//let n = 5;
+//let queries = [ [ 1, 2, 100 ], [ 2, 5, 100 ], [ 3, 4, 100 ] ]
+// expected 200
+//let n = 50
+//let queries = [[1,2,1],[4,5,1],[12,16,1],[22,23,1]]
+let arr = Array.from({length: n}, () => 0);
+let max = 0;
+for (let i = 0; i < queries.length; i++) {
+	arr[queries[i][0]-1] += queries[i][2];
+	if (queries[i][1] < arr.length) {
+		arr[queries[i][1]] -= queries[i][2];
 	}
+	
 }
-function getMax(a,b,k){
-	max.value = currentMax;
-	console.log('a:',a,'b:',b,'k',k);
-	doOverlap = overlap(a,b,max.a,max.b);
-	if(doOverlap){
-		max.a = overlap[0]; 
-		max.b = overlap[1];
-		max.value += k;
-		arr.push(max)
-	}else{
-		arr.push(
-			{
-				value: k,
-				a: a,
-				b: b
-			}
-		);
-	}
-	console.log('------------------')
-	return max.value;
+for (let i = 1; i < n; i++) {
+	arr[i] += arr[i-1];
+	max = Math.max(max, arr[i]);
 }
-for(let value of queries){
-	currentMax = getMax(value[0],value[1],value[2]);
-}
-console.log(currentMax);
+
+console.log(max);
