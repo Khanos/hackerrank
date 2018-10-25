@@ -1,5 +1,5 @@
 # hackerrank
-** My personals trials to the hackerrank challenges.
+** My personals trials to the hackerrank challenges. **
  
 Challenge Name | Difficulty | Author | Progress
 --- | --- | --- | ---
