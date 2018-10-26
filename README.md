@@ -3,7 +3,9 @@
  
 Challenge Name | Difficulty | Author | Progress
 --- | --- | --- | ---
-Array Manipulation | Hard | *amititkgp* | **In Progress**
+Hash Tables: Ransom Note | Easy | *saikiran9194* | **Done**
+Two Strings | Easy | *zxqfd555* | **Done**
+Array Manipulation | Hard | *amititkgp* | **Done**
 Minimum Swaps 2 | Medium | *rishi_07* | **Done**
 Arrays - DS | Easy | *Shafaet* | **Done**
 2D Array - DS | Easy | *saikiran9194* | **Done**
@@ -15,3 +17,4 @@ Strings: Making Anagrams | Easy | *amititkgp* | **Done**
 Arrays: Left Rotation | Easy | *heraldo* | **Done**
 
 
+> **My Hackerrank profile** [KhanosVe](https://www.hackerrank.com/KhanosVe)
