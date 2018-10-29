@@ -1,0 +1,32 @@
+{
+  "name": "hackerrank",
+  "version": "1.0.0",
+  "description": "some helpers to generate some test",
+  "main": "index.js",
+  "dependencies": {
+    "random-number": "0.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khanos/hackerrank.git"
+  },
+  "keywords": [
+    "hackerrank",
+    "hack",
+    "javascript",
+    "node",
+    "array",
+    "hash",
+    "iterator"
+  ],
+  "author": "Epilef Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khanos/hackerrank/issues"
+  },
+  "homepage": "https://github.com/Khanos/hackerrank#readme"
+}
