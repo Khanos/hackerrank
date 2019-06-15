@@ -1,5 +1,3 @@
-let randomStr = require('./utils/random-str');
-
 // function sherlockAndAnagrams(s) {
 //     let anagrams = [];
 //     let _s = s.split('').reverse().join('');
@@ -22,16 +20,23 @@ let randomStr = require('./utils/random-str');
 let randomStr = require('./utils/random-str');
 
 function sherlockAndAnagrams(s) {
-    let anagrams = [];
-    let _s = '';
-    let n = 1;
-    for(let index in s){
-        _s = s.slice(index, n)
-        if(_s.indexOf(str))
+    let word = '';
+    let rest = '';
+    let count = 0;
+    let anagramsArray = []
+    for (let i = 0; i<s.lenght ; i++){
+        console.log(s[i],'==')
+        for(let j = i+1; j<s.lenght; j++){
+            console.log(s[i],'==', s[j])
+            if (s[i] == s[j]){
+                anagramsArray.push([i,j]);
+                break;
+            }
+        }
     }
-    return anagrams.length
+    return anagramsArray;
 }
 
 
 //let s = randomStr({size: 100, type: ['letters']});
-console.log('result', sherlockAndAnagrams('kkkk'));
+console.log('result', sherlockAndAnagrams('abba'));
