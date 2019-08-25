@@ -8,7 +8,7 @@
 			"type": "node",
 			"request": "launch",
 			"name": "Launch Program",
-			"program": "${workspaceFolder}\\Bear_and_Steady_Gene.js"
+			"program": "${file}"
 		}
 	]
 }
