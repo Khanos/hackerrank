@@ -1,5 +1,6 @@
 # hackerrank
 **My personals trials to the hackerrank challenges.**
+**... and playground for challenge stuff**
  
 Challenge Name | Difficulty | Author | Progress
 --- | --- | --- | ---
