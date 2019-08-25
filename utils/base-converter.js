@@ -14,7 +14,7 @@ let StackBuilder = require('./stack-builder');
     }
     return binaryString;
 } */
-const GetBinary = (number, base) => {
+const BaseConverter = (number, base) => {
     let remSTack = StackBuilder(), 
     rem, 
     binaryString = '',
@@ -27,11 +27,11 @@ const GetBinary = (number, base) => {
     }
 
     if (remSTack.isEmpty()){ return '0'}
-    
+
     while(!remSTack.isEmpty()){
         binaryString += digits[remSTack.pop()];
     }
     return binaryString;
 }
 
-module.exports = GetBinary;
+module.exports = BaseConverter;
