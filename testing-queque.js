@@ -21,6 +21,7 @@ priorityqueue.enqueue('Jack', 1);
 console.log(priorityqueue.size());
 
 priorityqueue.print();
+
 console.log('----------------------------')
 priorityqueue.enqueue('Camila', 1);
 priorityqueue.print();
