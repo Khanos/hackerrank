@@ -1,5 +1,6 @@
 let mylist = [0, 1, 2, 5, 7, 3, 8, 10, 14, 11, 19, 21, 15, 16, 12, 27, 13, 17];
 let value = 19
+// My first attempt, no cheating
 function binarysearch(list, value, isOrdered){
     if (!isOrdered){
         list = list.sort(function(prev, curr){return prev-curr});
