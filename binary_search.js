@@ -27,5 +27,5 @@ function binarysearch(list, value, isOrdered){
     }
 }
 let mylist = [0, 1, 2, 5, 7, 3, 8, 10, 14, 11, 19, 21, 15, 16, 12, 27, 13, 17];
-let value = 0
+let value = 4
 console.log(binarysearch(mylist, value, false));
