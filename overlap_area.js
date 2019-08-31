@@ -25,7 +25,7 @@ console.timeEnd('First attemp');
 
 console.log('-----------------------------------------------')
 rect1 = [[0,0],[5,5]]
-rect2 = [[6,6],[10,10]]
+rect2 = [[3,0],[6,6]]
 
 let findOverlap_v2 = (rect1, rect2) => {
     if(rect1[0][0] > rect2[1][0]){
@@ -41,8 +41,8 @@ let findOverlap_v2 = (rect1, rect2) => {
     if(rect1[0][1] > rect2[1][1]) {
         return false;
     }
-    let base = rect1[1][0] - rect2[0][0];
-    let high = rect1[1][1] - rect2[0][1];
+    let base = Math.min(rect1[1][0], rect2[1][0]) - Math.max(rect1[0][0], rect2[0][0]);
+    let high = Math.min(rect1[1][1], rect2[1][1]) - Math.max(rect1[0][1], rect2[0][1]);
     let area = base * high;
     return area;
 }
