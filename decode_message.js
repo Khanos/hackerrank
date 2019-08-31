@@ -1,6 +1,6 @@
 // given a string of numbers, return the number of way a message can be form 
 // if each number in the srting correspond to the index of a letter.
-// '11' -> 'aa', 'l' -> Alphabet[1] = 'a' but also Alphabet[11] = 'l'
+// '11' -> 'aa', 'l' so return 2 -> Alphabet[1] = 'a' but also Alphabet[11] = 'l'
 
 // message = '1111' // 'aaaa', 'kaa', 'kk', 'aka', 'aak'
 message = '11111111111111111111111111111111111111'
