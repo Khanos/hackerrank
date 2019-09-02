@@ -1,35 +1,36 @@
 function Queue() {
+    let interface = {};
     let items = [];
 
-    this.enqueue = (element) => {
+    interface.enqueue = (element) => {
         items.push(element);    
     }
 
-    this.dequeue = () => {
+    interface.dequeue = () => {
         return items.shift()
     }
 
-    this.front = () => {
+    interface.front = () => {
         return items[0];
     }
 
-    this.isEmpty = () => {
+    interface.isEmpty = () => {
         return items.length == 0;
     }
 
-    this.size = () => {
+    interface.size = () => {
         return items.length
     }
 
-    this.print = () => {
+    interface.print = () => {
         console.log(items.toString());
     }
 
-    this.clear = () => {
+    interface.clear = () => {
         items = [];
     }
 
-    return this;
+    return interface;
 }
 
 module.exports = Queue

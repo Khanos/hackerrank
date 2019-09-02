@@ -29,5 +29,6 @@ let findOdd = (arr) => {
 };
 
 console.time('First Attempt')
+console.log(arr)
 console.log(findOdd(arr))
 console.timeEnd('First Attempt')

@@ -1,12 +1,13 @@
 function LinkedList() {
+    let interface = {};
     function Node(element) {
-        this.element = element;
-        this.next = null;
+        interface.element = element;
+        interface.next = null;
     }
     let length = 0;
     let head = null;
 
-    this.append = (element) => {
+    interface.append = (element) => {
         let node = new Node(element);
         let current;
         if(head == null){
@@ -21,7 +22,7 @@ function LinkedList() {
         length++;
     };
 
-    this.removeAt = (position) => {
+    interface.removeAt = (position) => {
         if (position >= 0 && position < length) {
             let current = head;
             let previous;
@@ -43,7 +44,7 @@ function LinkedList() {
         }
     };
 
-    this.insert = (position, element) => {
+    interface.insert = (position, element) => {
         if (position >= 0 && position <= length) {
             let node = new Node(element);
             let current = head;
@@ -68,7 +69,7 @@ function LinkedList() {
         }
     };
 
-    this.toString = () => {
+    interface.toString = () => {
         let current = head;
         let string = '';
         while(current){
@@ -78,7 +79,7 @@ function LinkedList() {
         return string;
     };
 
-    this.indexOf = (element) => {
+    interface.indexOf = (element) => {
         let current = head;
         let index = 0;
         while(current){
@@ -91,15 +92,15 @@ function LinkedList() {
         return -1;
     };
 
-    this.isEmpty = () => {
+    interface.isEmpty = () => {
         return length === 0;
     };
 
-    this.size = () => {
+    interface.size = () => {
         return length;
     };
 
-    this.getHead = () => {
+    interface.getHead = () => {
         return head;
     };
 }

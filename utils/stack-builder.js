@@ -1,23 +1,24 @@
 
 // Class Stack
 const Stack = () => {
-    var items = [];
+    let interface = {};
+    let items = [];
 
-    this.push = (element) => {return items.push(element)};
+    interface.push = (element) => {return items.push(element)};
 
-    this.pop = () => {return items.pop()};
+    interface.pop = () => {return items.pop()};
 
-    this.peek = () => {return items[items.length - 1]};
+    interface.peek = () => {return items[items.length - 1]};
 
-    this.isEmpty = () => {return items.length == 0};
+    interface.isEmpty = () => {return items.length == 0};
 
-    this.size = () => {return items.length};
+    interface.size = () => {return items.length};
 
-    this.clear = () => {items = []};
+    interface.clear = () => {items = []};
 
-    this.print = () => {console.log(items.toString())};
+    interface.print = () => {console.log(items.toString())};
 
-    return this;
+    return interface;
 }
 
 module.exports = Stack
