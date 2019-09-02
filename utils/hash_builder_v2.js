@@ -1,3 +1,4 @@
+// This implementation uses an array of objects
 const hash = (key, size) => {
     let asciiCode = 0;
     for(let i = 0; i < key.length; i++){
