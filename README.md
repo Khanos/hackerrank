@@ -18,6 +18,7 @@ Sock Merchant | Easy | *shafaet* | **Done**
 Strings: Making Anagrams | Easy | *amititkgp* | **Done**
 Arrays: Left Rotation | Easy | *heraldo* | **Done**
 Algorithms: A Very Big Sum | Easy | *vatsalchanana* | **Done**
+Algorithms: Diagonal Difference | Easy | *vatsalchanana* | **Done**
 
 
 > **My Hackerrank profile** [KhanosVe](https://www.hackerrank.com/KhanosVe)
