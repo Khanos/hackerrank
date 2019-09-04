@@ -4,7 +4,7 @@
  
 Challenge Name | Difficulty | Author | Progress
 --- | --- | --- | ---
-Sherlock and Anagrams | Medium | *darkshadows* | **In Progress**
+Sherlock and Anagrams | Medium | *darkshadows* | **Done**
 Hash Tables: Ransom Note | Easy | *saikiran9194* | **Done**
 Two Strings | Easy | *zxqfd555* | **Done**
 Array Manipulation | Hard | *amititkgp* | **Done**
