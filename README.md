@@ -20,6 +20,7 @@ Arrays: Left Rotation | Easy | *heraldo* | **Done**
 Algorithms: A Very Big Sum | Easy | *vatsalchanana* | **Done**
 Algorithms: Diagonal Difference | Easy | *vatsalchanana* | **Done**
 Algorithms: Plus Minus | Easy | *vatsalchanana* | **Done**
+Hash Tables: Ice Cream Parlor | Medium | *Dheeraj* | **Done**
 
 
 > **My Hackerrank profile** [KhanosVe](https://www.hackerrank.com/KhanosVe)
