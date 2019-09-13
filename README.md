@@ -22,6 +22,6 @@ Algorithms: Diagonal Difference | Easy | *vatsalchanana* | **Done**
 Algorithms: Plus Minus | Easy | *vatsalchanana* | **Done**
 Hash Tables: Ice Cream Parlor | Medium | *Dheeraj* | **Done**
 Maximum Subarray Sum | Hard | *devuy11* | **Done** 
-
+Mini-Max Sum | Easy | *bishop15* | **Done** 
 
 > **My Hackerrank profile** [KhanosVe](https://www.hackerrank.com/KhanosVe)
