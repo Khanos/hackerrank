@@ -23,5 +23,6 @@ Algorithms: Plus Minus | Easy | *vatsalchanana* | **Done**
 Hash Tables: Ice Cream Parlor | Medium | *Dheeraj* | **Done**
 Maximum Subarray Sum | Hard | *devuy11* | **Done** 
 Mini-Max Sum | Easy | *bishop15* | **Done** 
+Birthday Cake Candles | Easy | *shashank21j* | **Done** 
 
 > **My Hackerrank profile** [KhanosVe](https://www.hackerrank.com/KhanosVe)
