@@ -4,6 +4,7 @@
   "description": "some helpers to generate some test",
   "main": "index.js",
   "dependencies": {
+    "eslint": "^6.4.0",
     "random-number": "0.0.9"
   },
   "devDependencies": {},
