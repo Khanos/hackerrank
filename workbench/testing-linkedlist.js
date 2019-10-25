@@ -1,4 +1,4 @@
-let LinkedListBuilder = require('./utils/linkedlist-builder');
+let LinkedListBuilder = require('../utils/linkedlist-builder');
 
 let linkedList = new LinkedListBuilder();
 let head;

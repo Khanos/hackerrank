@@ -1,8 +1,8 @@
 function LinkedList() {
     let interface = {};
     function Node(element) {
-        interface.element = element;
-        interface.next = null;
+        this.element = element;
+        this.next = null;
     }
     let length = 0;
     let head = null;
@@ -103,6 +103,8 @@ function LinkedList() {
     interface.getHead = () => {
         return head;
     };
+
+    return interface;
 }
 
 module.exports = LinkedList;

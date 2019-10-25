@@ -1,0 +1,13 @@
+{
+    'Mark Johansson': [
+        { name: 'Wafle Iron',   price: '80',    quantity: '2'},
+        { name: 'Blender',      price: '200',   quantity: '1'},
+        { name: 'Knife',        price: '10',    quantity: '4'}
+    ],
+    'Nikita Smith': [
+        { name: 'Wafle Iron',   price: '80',    quantity: '1'},
+        { name: 'Blender',      price: '200',   quantity: '2'},
+        { name: 'Knife',        price: '10',    quantity: '3'},
+        { name: 'TOaster',      price: '35',    quantity: '1'}
+    ]
+}
