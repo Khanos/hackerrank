@@ -38,9 +38,9 @@ function LinkedList() {
                 previous.next = current.next;
                 length--;
                 return current.element;
-            } 
+            }
         } else {
-         return null;       
+         return null;
         }
     };
 
