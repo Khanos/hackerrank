@@ -33,16 +33,16 @@ console.log('---------------------------------------------------------------');
  */
 function reverse(head) {
     console.log(JSON.stringify(head));
-    let prev = null;
+    let revr = null;
     let curr = head;
     let next = null;
     while(curr){
         next = curr.next;
-        curr.next = prev;
-        prev = curr;
+        curr.next = revr;
+        revr = curr;
         curr = next;
     }
-    return prev;
+    return revr;
 }
 console.log('---------------------------------------------------------------');
 let result = reverse(llist);
