@@ -38,21 +38,21 @@ function findMergeNode(headA, headB) {
     let currentB = headB.next;
     //Do till the two nodes are the same
     while(JSON.stringify(currentA) != JSON.stringify(currentB)){
-        if(currentA.next == null){
+        if(currentA && currentA.next == null){
             currentA = headB;
         }else{
             currentA = currentA.next;
         }
-        if(currentB.next == null){
+        if(currentB && currentB.next == null){
             currentB = headA;
         }else{
             currentB = currentB.next;
         }
     }
-    return currentB.data;
+    return currentB ? currentB.data : null;
 }
 console.log('---------------------------------------------------------------');
 let result = findMergeNode(llist.head, llist2.head);
 console.log(JSON.stringify(result));
-// let result2 = findMergeNode(llist3.head, llist4.head);
-// console.log(JSON.stringify(result2));
+let result2 = findMergeNode(llist3.head, llist4.head);
+console.log(JSON.stringify(result2));
