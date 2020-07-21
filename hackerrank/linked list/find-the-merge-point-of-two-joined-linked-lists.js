@@ -12,13 +12,10 @@ llist2.insertNode(2);
 llist2.insertNode(3);
 
 let llist3 = new SinglyLinkedList();
-llist3.insertNode(1);
-llist3.insertNode(2);
-llist3.insertNode(3);
+llist3.insertNode(4);
 
 let llist4 = new SinglyLinkedList();
 llist4.insertNode(1);
-llist4.insertNode(3);
 
 console.log('---------------------------------------------------------------');
 /*
@@ -37,38 +34,29 @@ console.log('---------------------------------------------------------------');
 function findMergeNode(headA, headB) {
     console.log(JSON.stringify(headA));
     console.log(JSON.stringify(headB));
-    let position = 0;
-    let value = null;
-    function getValue(head, position) {
+    function getValuesFromTail(head){
         let values = [];
-        if(head){
+        while(head){
             values.push(head.data);
-            while(head.next){
-                head = head.next;
-                values.push(head.data);
-            }
+            head = head.next;
         }
-        return values[position] ? values[position] : null;
+        return values.reverse();
     }
-    let targetList = headB;
-    while(headA){
-        while(targetList){
-            if(headA.next.data === getValue(targetList.next, position)){
-                targetList.next = null;
-                value = headA.next.data;
-            }
-            targetList = targetList.next;
-            position++;
-        }
-        if(value){
-            headA = null;
-        } else {
-            headA = headA.next;
-            targetList = headB;
-            position = 0;
-        }
+    let mergeValue;
+    let headAValues = getValuesFromTail(headA);
+    let headBValues = getValuesFromTail(headB);
+    console.log(headAValues);
+    console.log(headBValues);
+    let index
+    for(index = 0; index < headAValues.length; index++){
+        if(headAValues[index] !== headBValues[index]){
+            break;
+         }
+         if(index < headAValues.length-1 && index < headBValues.length-1){
+            mergeValue = headAValues[index];
+         }
     }
-    return value;
+    return mergeValue ? mergeValue : null;
 }
 console.log('---------------------------------------------------------------');
 let result = findMergeNode(llist.head, llist2.head);
