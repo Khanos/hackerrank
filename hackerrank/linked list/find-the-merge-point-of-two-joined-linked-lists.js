@@ -34,32 +34,60 @@ console.log('---------------------------------------------------------------');
 function findMergeNode(headA, headB) {
     console.log(JSON.stringify(headA));
     console.log(JSON.stringify(headB));
-    function getValuesFromTail(head){
-        let values = [];
-        while(head){
-            values.push(head.data);
-            head = head.next;
+    let currentA = headA.next;
+    let currentB = headB.next;
+    function object_equals(x, y) {
+        if (x === y) return true;
+        // if both x and y are null or undefined and exactly the same
+
+        if (!(x instanceof Object) || !(y instanceof Object)) return false;
+        // if they are not strictly equal, they both need to be Objects
+
+        if (x.constructor !== y.constructor) return false;
+        // they must have the exact same prototype chain, the closest we can do is
+        // test there constructor.
+
+        for (var p in x) {
+            if (!x.hasOwnProperty(p)) continue;
+            // other properties were tested using x.constructor === y.constructor
+
+            if (!y.hasOwnProperty(p)) return false;
+            // allows to compare x[ p ] and y[ p ] when set to undefined
+
+            if (x[p] === y[p]) continue;
+            // if they have the same strict value or identity then they are equal
+
+            if (typeof (x[p]) !== "object") return false;
+            // Numbers, Strings, Functions, Booleans must be strictly equal
+
+            if (!object_equals(x[p], y[p])) return false;
+            // Objects and Arrays must be tested recursively
         }
-        return values.reverse();
+
+        for (p in y)
+            if (y.hasOwnProperty(p) && !x.hasOwnProperty(p))
+                return false;
+        // allows x[ p ] to be set to undefined
+
+        return true;
     }
-    let mergeValue;
-    let headAValues = getValuesFromTail(headA);
-    let headBValues = getValuesFromTail(headB);
-    console.log(headAValues);
-    console.log(headBValues);
-    let index
-    for(index = 0; index < headAValues.length; index++){
-        if(headAValues[index] !== headBValues[index]){
-            break;
-         }
-         if(index < headAValues.length-1 && index < headBValues.length-1){
-            mergeValue = headAValues[index];
-         }
+    //Do till the two nodes are the same
+    while(!object_equals(currentA, currentB)){
+        if(currentA.next == null){
+            currentA = headB;
+        }else{
+            currentA = currentA.next;
+        }
+        if(currentB.next == null){
+            currentB = headA;
+        }else{
+            currentB = currentB.next;
+        }
     }
-    return mergeValue ? mergeValue : null;
+    return currentB.data;
 }
 console.log('---------------------------------------------------------------');
 let result = findMergeNode(llist.head, llist2.head);
 console.log(JSON.stringify(result));
-let result2 = findMergeNode(llist3.head, llist4.head);
-console.log(JSON.stringify(result2));
+// let result2 = findMergeNode(llist3.head, llist4.head);
+// console.log(JSON.stringify(result2));
