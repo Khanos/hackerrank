@@ -32,35 +32,29 @@ console.log('---------------------------------------------------------------');
 // You only need to complete this method.
 
 function findMergeNode(headA, headB) {
-    function reverse(head) {
-        let revr = null;
-        let curr = head;
-        let next = null;
-        while(curr){
-            next = curr.next;
-            curr.next = revr;
-            revr = curr;
-            curr = next;
-        }
-        return revr;
+    let arrA = [];
+    let arrB = [];
+    while(headA){
+        arrA.unshift(headA.data);
+        headA = headA.next;
     }
-    console.log(JSON.stringify(headA));
-    console.log(JSON.stringify(headB));
-    console.log('-----------------------');
-    let promises = [Promise.resolve(reverse(headA)), Promise.resolve(reverse(headB))];
-    Promise.all(promises).then(values => {
-        let currentA = values[0];
-        let currentB = values[1];
-        console.log(JSON.stringify(currentA));
-        console.log(JSON.stringify(currentB));
-        let merged = null;
-        while(currentA && currentB && currentA.data === currentB.data){
-            merged = currentA.data;
-            currentA = currentA.next;
-            currentB = currentB.next;
+    while(headB){
+        arrB.unshift(headB.data);
+        headB = headB.next;
+    }
+    arrA.pop();
+    arrB.pop();
+    let currentA, currentB;
+    let merged = null;
+    for(const index in arrA){
+        currentA = arrA[index];
+        currentB = arrB[index];
+        if(currentA !== currentB){
+            break;
         }
-        return merged ? merged : null;
-    })
+        merged = currentA;
+    }
+    return merged ? merged : null;
 }
 console.log('---------------------------------------------------------------');
 let result = findMergeNode(llist.head, llist2.head);
