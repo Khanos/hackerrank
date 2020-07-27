@@ -1,14 +1,18 @@
 let LinkedList = require('./LinkedList');
 let SinglyLinkedList = LinkedList.SinglyLinkedList;
 
+let fillList = (list, start, end) => {
+    for(let i = start ; i <= end ; i++){
+      list.insertNode(i);
+    }
+    return list;
+}
+
 let llist = new SinglyLinkedList();
-llist.insertNode(1);
-llist.insertNode(2);
-llist.insertNode(3);
+llist = fillList(llist, 54, 10000);
 
 let llist2 = new SinglyLinkedList();
-llist2.insertNode(1);
-llist2.insertNode(3);
+llist2 = fillList(llist2, 87, 10000);
 
 let llist3 = new SinglyLinkedList();
 llist3.insertNode(3);
@@ -32,18 +36,17 @@ console.log('---------------------------------------------------------------');
 // You only need to complete this method.
 
 function findMergeNode(headA, headB) {
-    let arrA = [];
-    let arrB = [];
-    while(headA){
-        arrA.unshift(headA.data);
-        headA = headA.next;
-    }
-    while(headB){
-        arrB.unshift(headB.data);
-        headB = headB.next;
-    }
-    arrA.pop();
-    arrB.pop();
+    let reverse = (head) => {
+        let arr = [];
+        while(head){
+            arr.unshift(head.data);
+            head = head.next;
+        }
+        arr.pop();
+        return arr;
+    };
+    let arrA = reverse(headA);
+    let arrB = reverse(headB);
     let currentA, currentB;
     let merged = null;
     for(const index in arrA){
