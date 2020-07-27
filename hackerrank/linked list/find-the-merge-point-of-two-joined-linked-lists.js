@@ -1,18 +1,21 @@
 let LinkedList = require('./LinkedList');
 let SinglyLinkedList = LinkedList.SinglyLinkedList;
 
-let fillList = (list, start, end) => {
-    for(let i = start ; i <= end ; i++){
+let fillList = (list, n) => {
+    for(let i = 1 ; i <= n ; i=i+Math.round(Math.random()*10)+1){
       list.insertNode(i);
     }
     return list;
 }
 
 let llist = new SinglyLinkedList();
-llist = fillList(llist, 54, 10000);
+llist = fillList(llist, 2000);
 
 let llist2 = new SinglyLinkedList();
-llist2 = fillList(llist2, 87, 10000);
+llist2 = fillList(llist2, 2000);
+
+console.log(JSON.stringify(llist));
+console.log(JSON.stringify(llist2));
 
 let llist3 = new SinglyLinkedList();
 llist3.insertNode(3);
