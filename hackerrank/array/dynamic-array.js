@@ -8,10 +8,11 @@ function dynamicArray(n, queries) {
     let lastAnswer = 0;
     for(let element of queries){
         let index = (element[1] ^ lastAnswer) % n;
+        let seq = seqList[index];
         if(element[0] === 1){
-            seqList[index].push(element[2]);
+            seq.push(element[2]);
         } else {
-            lastAnswer = seqList[index][element[2]];
+            lastAnswer = seq[element[2] % seq.length]
             response.push(lastAnswer);
         }
     }
