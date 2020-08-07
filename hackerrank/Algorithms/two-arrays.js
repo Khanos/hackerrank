@@ -1,7 +1,18 @@
 // Complete the twoArrays function below.
 function twoArrays(k, A, B) {
-
-
+    let A_ = A.sort((a,b)=>{return a-b});
+    let B_ = B.sort((a,b)=> a-b);
+    A_ = A_.reverse();
+    let response;
+    for(const index in A_){
+        if(A_[index]+B_[index] === k){
+            response = 'YES';
+        } else {
+            response = 'NO';
+            break;
+        }
+    }
+    return response;
 }
 let k, A, B;
 k = 10;
