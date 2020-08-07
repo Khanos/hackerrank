@@ -1,18 +1,9 @@
 // Complete the twoArrays function below.
 function twoArrays(k, A, B) {
-    let A_ = A.sort((a,b)=>{return a-b});
-    let B_ = B.sort((a,b)=> a-b);
-    A_ = A_.reverse();
-    let response;
-    for(const index in A_){
-        if(A_[index]+B_[index] === k){
-            response = 'YES';
-        } else {
-            response = 'NO';
-            break;
-        }
-    }
-    return response;
+    let sumA = A.reduce((sum, currentValue) => sum+currentValue);
+    let sumB = B.reduce((sum, currentValue) => sum+currentValue);
+    let tot = (sumA + sumB) / A.length;
+    return tot === k ? 'YES' : 'NO'
 }
 let k, A, B;
 k = 10;
@@ -22,4 +13,8 @@ console.log(twoArrays(k, A, B));
 k = 5;
 A = [ 1, 2, 2, 1 ];
 B = [ 3, 3, 3, 4 ];
+console.log(twoArrays(k, A, B));
+k = 5;
+A = [ 1,1,1,1,1 ];
+B = [ 4,4,4,4,4 ];
 console.log(twoArrays(k, A, B));
