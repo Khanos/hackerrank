@@ -35,3 +35,7 @@ k = 5;
 A = [ 1, 2, 2, 1 ];
 B = [ 3, 3, 3, 4 ];
 console.log(twoArrays(k, A, B));
+k = 5;
+A = [ 1, 2, 1, 1 ];
+B = [ 1, 1, 1, 4 ];
+console.log(twoArrays(k, A, B));

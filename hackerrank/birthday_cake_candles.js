@@ -12,7 +12,6 @@ function birthdayCakeCandles(ar) {
     }
     return count;
 }
-
 console.time('First attempt');
 console.log(birthdayCakeCandles(ar));
 console.timeEnd('First attempt');

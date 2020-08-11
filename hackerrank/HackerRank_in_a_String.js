@@ -15,12 +15,11 @@ function hackerrankInString(s) {
 		if(match.result){
 			s = popThat(match.in, s);
 		} else {
-			
+
 			return "NO";
 		}
 	}
 	return "YES"
 }
-
 console.log(hackerrankInString("hereiamstackerrank"));
 console.log(hackerrankInString("rhbaasdndfsdskgbfefdbrsdfhuyatrjtcrtyytktjjt"));
