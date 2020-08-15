@@ -1,13 +1,11 @@
 // Complete the activityNotifications function below.
 function activityNotifications(expenditure, d) {
   let notifications = 0;
-  let getMedian = (arr, start, end) => {
-    let transactions = arr.slice(start, end).sort((prev, next) => prev-next);
-    let middle = parseInt(transactions.length / 2);
-    return transactions.length % 2 !== 0 ? transactions[middle] : (transactions[parseInt(middle)] + transactions[parseInt(middle) + 1]) / 2
-  }
   for(let index = d; index < expenditure.length; index++){
-    let median = getMedian(expenditure, index-d, index);
+    let transactions = expenditure.slice(index-d, index)
+    transactions.sort((prev, next) => prev-next);
+    let middle = parseInt(transactions.length / 2);
+    let median = transactions.length % 2 !== 0 ? transactions[middle] : (transactions[parseInt(middle)] + transactions[parseInt(middle) + 1]) / 2;
     if(expenditure[index] >= 2 * median){
       notifications++;
     }
