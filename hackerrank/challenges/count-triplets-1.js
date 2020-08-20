@@ -1,24 +1,21 @@
 // Complete the countTriplets function below.
 function countTriplets(arr, r) {
   let count = 0;
-  let sortedArr = arr.sort((a,b)=> a-b);
-  const valuesMap = new Map();
-  for(let value of sortedArr){
-    let currentValue = valuesMap.get(value);
-    if(!currentValue){
-      valuesMap.set(value, 1);
-    } else {
-      valuesMap.set(value, currentValue + 1);
-    }
-  }
-  for(let value of sortedArr){
-    let i = 1;
-    let j = valuesMap.get(value*r) || 0;
-    let k = valuesMap.get(value*r*r) || 0;
-    count = count + (i*j*k);
+  const map = {};
+  const pairs = new Map();
+  for (let i = arr.length - 1; i >= 0; i--) {
+    let x = arr[i];
+    let rx = x * r;
+    let r2x = rx * r;
+    let pairR = `${rx}-${r2x}`;
+    let pairL = `${x}-${rx}`;
+    if (pairs.get(pairR) !== undefined) count = count + pairs.get(pairR);
+    if (pairs.get(pairL) == undefined) pairs.set(pairL, 0);
+    pairs.set(pairL, pairs.get(pairL) + ((map[rx] == undefined) ? 0 : map[rx]));
+    (map[x] == undefined) ? map[x] = 1: map[x]++;
   }
   return count;
 }
-let arr =[125, 1, 5, 5, 25];
+let arr = [1, 5, 5, 25, 125];
 let r = 5;
 console.log(countTriplets(arr, r));
