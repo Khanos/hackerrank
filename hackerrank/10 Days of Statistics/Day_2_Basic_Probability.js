@@ -17,4 +17,5 @@ let favorableOutcome = getDiceSums(9).length;
 let totalOutcome = 6 * 6;
 // In a single toss of 2 fair (evenly-weighted) six-sided dice, find the probability that their sum will be at most 9.
 let prob = favorableOutcome / totalOutcome;
-console.log(prob, `${favorableOutcome} / ${totalOutcome}`);
+console.log('Probability that their sum will be at most 9: ', `${favorableOutcome} / ${totalOutcome}`);
+
