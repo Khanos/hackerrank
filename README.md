@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.hackerrank.com/KhanosVe">
-    <img alt="HackerRank" src="https://raw.githubusercontent.com/khanos/hackerrank/master/assets/hacker-rank-logo.png">
+    <img alt="HackerRank" src="https://raw.githubusercontent.com/Khanos/hackerrank/master/assets/hacker-rank-logo.png">
   </a>
 </p>
 <p align="center">
