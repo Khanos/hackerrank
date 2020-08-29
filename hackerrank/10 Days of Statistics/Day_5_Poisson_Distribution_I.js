@@ -1,17 +1,17 @@
 
 function processData(input) {
   function factorial(n) {
-    let arr = [];
-    for (let value = 1; value <= n; value++) {
-      arr.push(value);
+    if (n <= 1) return 1
+    for (let i = n; i-- > 1;){
+      n *= i
     }
-    return arr.reduce((accu, value) => accu * value, 1)
+    return n;
   }
-  function poissonDist(k, l){
-    return ((Math.pow(l,k)) * (Math.pow(Math.E,-l))) /factorial(k);
+  function poissonDist(l, k){
+    return (Math.pow(l,k) * Math.pow(Math.E,-l)) / factorial(k);
   }
-  let l = input.split('\n')[1];
-  let k = input.split('\n')[0];
-  console.log(poissonDist(k, l).toFixed(3));
+  let l = input.split('\n')[0];
+  let k = input.split('\n')[1];
+  console.log(poissonDist(l, k).toFixed(3));
 }
 processData('2.5\n5');
