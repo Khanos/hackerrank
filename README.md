@@ -17,8 +17,6 @@
 
 
 # HACKERRANK
-**My personals trials to the hackerrank challenges**
-**... and workbench for other stuff**
 
 Challenge Name | Difficulty | Author | Progress
 --- | --- | --- | ---

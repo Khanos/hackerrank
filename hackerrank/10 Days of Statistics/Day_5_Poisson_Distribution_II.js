@@ -1,17 +1,10 @@
 
 function processData(input) {
-  function factorial(n) {
-    if (n <= 1) return 1
-    for (let i = n; i-- > 1;){
-      n *= i
-    }
-    return n;
-  }
-  function poissonDist(l, k){
-    return (Math.pow(l,k) * Math.pow(Math.E,-l)) / factorial(k);
-  }
-  let l = input.split('\n')[0];
-  let k = input.split('\n')[1];
-  console.log(poissonDist(l, k).toFixed(3));
+  let x = parseFloat(input.split(' ')[0]);
+  let a = 160 + 40 * (x + Math.pow(x, 2));
+  let y = parseFloat(input.split(' ')[1]);
+  let b = 128 + 40 * (y + Math.pow(y, 2));
+  console.log(a.toFixed(3));
+  console.log(b.toFixed(3));
 }
-processData('2.5\n5');
+processData('0.88 1.55');
