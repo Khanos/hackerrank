@@ -5,7 +5,7 @@ let arr = [ [ 1, 1, 1, 0, 0, 0 ],
             [ 0, 0, 0, 2, 0, 0 ],
             [ 0, 0, 1, 2, 4, 0 ] ]
 
-let max = 0;
+let max = -63;
 for (let i = 0; i <= 3; i++) {
   for (let j = 0; j <= 3; j++) {
     let sum = 0;
@@ -15,5 +15,4 @@ for (let i = 0; i <= 3; i++) {
     max = sum > max ? sum : max;
   }
 }
-
 console.log(max === 19);
