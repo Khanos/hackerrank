@@ -14,25 +14,22 @@ function processData(input) {
     y: temp[2]
   };
 
-  let fine;
-  if (actual.y == expected.y) {
-    if (actual.m == expected.m) {
-      if (actual.d <= expected.d) {
-        fine = 0;
+  const getFine = (actual, expected) => {
+    const yearFine = 10000 * (actual.y - expected.y);
+    const monthFine = 500 * (actual.m - expected.m);
+    const dayFine = 15 * (actual.d - expected.d);
+
+    if (yearFine === 0) {
+      if (monthFine === 0) {
+        return (dayFine > 0) ? dayFine : 0;
       } else {
-        fine = 15 * (actual.d - expected.d);
+        return (monthFine > 0) ? monthFine : 0;
       }
-    } else if (actual.m < expected.m) {
-      fine = 0;
-    } else {
-      fine = 500 * (actual.m - expected.m);
     }
-  } else if (actual.y < expected.y) {
-    fine = 0;
-  } else {
-    fine = 10000;
+    return (yearFine > 0) ? 10000 : 0;
   }
 
+  const fine = getFine(actual, expected);
   console.log(fine);
 }
 const _input = '9 4 2015\n6 6 2015'
