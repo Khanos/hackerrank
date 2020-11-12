@@ -7,3 +7,5 @@ let obstacles = [ [ 5, 5 ], [ 4, 2 ], [ 2, 3 ] ];
 function queensAttack(n, k, r_q, c_q, obstacles) {
   console.log(n, k, r_q, c_q, obstacles);
 }
+
+queensAttack(n, k, r_q, c_q, obstacles)
