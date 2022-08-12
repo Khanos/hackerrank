@@ -3,28 +3,41 @@ function countSort(arr) {
   const half = parseInt(n / 2);
 
   // Creating a Map of the words by value
-  const inputMap = new Map();
-  arr.forEach((el, index) => {
+  const inputObject = arr.reduce((acc, el, index) => {
     const value = index < half ? "-" : el[1];
-    if (inputMap.has(el[0])) {
-      inputMap.set(el[0], [...inputMap.get(el[0]), value]);
-    } else {
-      inputMap.set(el[0], [value]);
-    }
-  });
+    acc[el[0]] = acc[el[0]] ?  [...acc[el[0]], value] : [value];
+    return acc;
+  }, {});
 
   // Getting the words array
-  const wordsArray = new Array([...inputMap.keys()].length).fill(0);
-  inputMap.forEach((value, key) => {
-    wordsArray[key] = value;
-  });
+  const wordsArray = new Array(Object.keys(inputObject).length).fill(0);
+  for (const key in inputObject) {
+    if (Object.hasOwnProperty.call(inputObject, key)) {
+      const element = inputObject[key];
+      wordsArray[key] = element;
+    }
+  }
 
   // Flat and convert to string the words array
-  if(wordsArray[0] === 0) {
+  if (wordsArray[0] === 0) {
     wordsArray.shift();
   }
   console.log(wordsArray.flat().join(" "));
 }
+
+// Read file in utils/sample-data/input05.txt for the test case 5
+const fs = require("fs");
+const arr = [];
+fs.readFile("utils/sample-data/input05.txt", "utf8", (err, data) => {
+  if (err) throw err;
+  data.split("\n").forEach((el, index) => {
+    if (index !== 0) {
+      arr.push(el.split(" "));
+    }
+  });
+  // calling the method
+  countSort(arr);
+});
 
 // const arr = [
 //   ["0", "ab"],
@@ -49,17 +62,17 @@ function countSort(arr) {
 //   ["4", "the"],
 // ];
 
-const arr = [
-  ["1", "e"],
-  ["2", "a"],
-  ["1", "b"],
-  ["3", "a"],
-  ["4", "f"],
-  ["1", "f"],
-  ["2", "a"],
-  ["1", "e"],
-  ["1", "b"],
-  ["1", "c"],
-];
+// const arr = [
+//   ["1", "e"],
+//   ["2", "a"],
+//   ["1", "b"],
+//   ["3", "a"],
+//   ["4", "f"],
+//   ["1", "f"],
+//   ["2", "a"],
+//   ["1", "e"],
+//   ["1", "b"],
+//   ["1", "c"],
+// ];
 
-countSort(arr);
+// countSort(arr);
