@@ -1,43 +1,47 @@
 function countSort(arr) {
+  const inputArr = arr;
   const n = arr.length;
   const half = parseInt(n / 2);
-
-  // Creating a Map of the words by value
-  const inputObject = arr.reduce((acc, el, index) => {
-    const value = index < half ? "-" : el[1];
-    acc[el[0]] = acc[el[0]] ?  [...acc[el[0]], value] : [value];
-    return acc;
-  }, {});
-
-  // Getting the words array
-  const wordsArray = new Array(Object.keys(inputObject).length).fill(0);
-  for (const key in inputObject) {
-    if (Object.hasOwnProperty.call(inputObject, key)) {
-      const element = inputObject[key];
-      wordsArray[key] = element;
+  const counts = {};
+  const sorted =  [];
+  for (let i = 0; i < n; i++) {
+    // Adding dashed to first half of array
+    if (i < half) {
+      inputArr[i][1] = '-';
+    }
+    // Counting the frequency of each value in the array
+    if(counts.hasOwnProperty(inputArr[i][0])){
+      counts[inputArr[i][0]]++;
+    } else {
+      counts[inputArr[i][0]] = 1;
     }
   }
-
-  // Flat and convert to string the words array
-  if (wordsArray[0] === 0) {
-    wordsArray.shift();
+  // Grouping the words in the correct order
+  for (let key in counts) {
+    const numArr = inputArr.reduce((acc, el) => {
+      if (el[0] === key) {
+        acc.push(el[1]);
+      }
+      return acc;
+    }, []);
+    sorted.push(numArr);
   }
-  console.log(wordsArray.flat().join(" "));
+  console.log(sorted.flat().join(' '));
 }
 
-// // Read file in utils/sample-data/input05.txt for the test case 5
-// const fs = require("fs");
-// const arr = [];
-// fs.readFile("utils/sample-data/input05.txt", "utf8", (err, data) => {
-//   if (err) throw err;
-//   data.split("\n").forEach((el, index) => {
-//     if (index !== 0) {
-//       arr.push(el.split(" "));
-//     }
-//   });
-//   // calling the method
-//   countSort(arr);
-// });
+// Read file in utils/sample-data/input05.txt for the test case 5
+const fs = require("fs");
+const arr = [];
+fs.readFile("utils/sample-data/input05.txt", "utf8", (err, data) => {
+  if (err) throw err;
+  data.split("\n").forEach((el, index) => {
+    if (index !== 0) {
+      arr.push(el.split(" "));
+    }
+  });
+  // calling the method
+  countSort(arr);
+});
 
 // const arr = [
 //   ["0", "ab"],
@@ -62,17 +66,17 @@ function countSort(arr) {
 //   ["4", "the"],
 // ];
 
-const arr = [
-  ["1", "e"],
-  ["2", "a"],
-  ["1", "b"],
-  ["3", "a"],
-  ["4", "f"],
-  ["1", "f"],
-  ["2", "a"],
-  ["1", "e"],
-  ["1", "b"],
-  ["1", "c"],
-];
+// const arr = [
+//   ["1", "e"],
+//   ["2", "a"],
+//   ["1", "b"],
+//   ["3", "a"],
+//   ["4", "f"],
+//   ["1", "f"],
+//   ["2", "a"],
+//   ["1", "e"],
+//   ["1", "b"],
+//   ["1", "c"],
+// ];
 
-countSort(arr);
+// countSort(arr);
