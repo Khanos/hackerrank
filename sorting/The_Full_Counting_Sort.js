@@ -25,19 +25,19 @@ function countSort(arr) {
   console.log(wordsArray.flat().join(" "));
 }
 
-// Read file in utils/sample-data/input05.txt for the test case 5
-const fs = require("fs");
-const arr = [];
-fs.readFile("utils/sample-data/input05.txt", "utf8", (err, data) => {
-  if (err) throw err;
-  data.split("\n").forEach((el, index) => {
-    if (index !== 0) {
-      arr.push(el.split(" "));
-    }
-  });
-  // calling the method
-  countSort(arr);
-});
+// // Read file in utils/sample-data/input05.txt for the test case 5
+// const fs = require("fs");
+// const arr = [];
+// fs.readFile("utils/sample-data/input05.txt", "utf8", (err, data) => {
+//   if (err) throw err;
+//   data.split("\n").forEach((el, index) => {
+//     if (index !== 0) {
+//       arr.push(el.split(" "));
+//     }
+//   });
+//   // calling the method
+//   countSort(arr);
+// });
 
 // const arr = [
 //   ["0", "ab"],
@@ -62,17 +62,17 @@ fs.readFile("utils/sample-data/input05.txt", "utf8", (err, data) => {
 //   ["4", "the"],
 // ];
 
-// const arr = [
-//   ["1", "e"],
-//   ["2", "a"],
-//   ["1", "b"],
-//   ["3", "a"],
-//   ["4", "f"],
-//   ["1", "f"],
-//   ["2", "a"],
-//   ["1", "e"],
-//   ["1", "b"],
-//   ["1", "c"],
-// ];
+const arr = [
+  ["1", "e"],
+  ["2", "a"],
+  ["1", "b"],
+  ["3", "a"],
+  ["4", "f"],
+  ["1", "f"],
+  ["2", "a"],
+  ["1", "e"],
+  ["1", "b"],
+  ["1", "c"],
+];
 
-// countSort(arr);
+countSort(arr);
