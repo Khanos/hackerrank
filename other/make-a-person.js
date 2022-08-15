@@ -29,3 +29,4 @@ console.log(bob.getFullName());
 console.log(bob.setFullName("Haskell Curry"));
 console.log('DONE:    ', bob instanceof Person);
 console.log(Object.keys(bob).length);
+console.log(Object.keys(bob));
