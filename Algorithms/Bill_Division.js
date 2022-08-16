@@ -11,7 +11,7 @@ function bonAppetit(bill, k, b) {
     console.log(bill, k, b)
     const billTotal = bill.reduce((a, b) => a + b, 0);
     const totalLeftEach = (billTotal - bill[k])/2;
-    return b-totalLeftEach;
+    console.log(b-totalLeftEach ? b-totalLeftEach : 'Bon Appetit');
 }
 
 const bill = [ 3, 10, 2, 9 ];
