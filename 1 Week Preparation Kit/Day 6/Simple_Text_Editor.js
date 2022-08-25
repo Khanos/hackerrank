@@ -24,7 +24,6 @@ function processData(input) {
                 break;
         }
     });
-    return S;
 } 
 
 const input = `8
